@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated GIF Preloader</title>
+
+  <style>
+    /* Reset defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Preloader styling */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* Hide content initially */
+    .content {
+      display: none;
+      text-align: center;
+      padding: 50px;
+    }
+
+    /* Fade-out effect for preloader */
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <!-- Use any loading GIF here -->
+    <img src="https://www.bing.com/th/id/OGC.aa3a5023857cb1279c83f2d156246d48?o=7&pid=1.7&rm=3&rurl=https%3a%2f%2fcdnl.iconscout.com%2flottie%2fpremium%2fthumb%2floader-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--loading-progress-bar-circle-pack-emoji-icons-4574104.gif&ehk=fgzlQl5S2hCGhIJwqmRELiQ8IXZmROhwHSBInSqnxPk%3d" alt="Loading..." width="100">
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="content">
+    <h1>Welcome to My Website</h1>
+    <p>Your main website content goes here.</p>
+  </div>
+
+  <script>
+    // Wait for full page load
+    window.addEventListener("load", function() {
+      const preloader = document.getElementById("preloader");
+      const content = document.querySelector(".content");
+
+      // Add fade-out class
+      preloader.classList.add("fade-out");
+
+      // Hide preloader and show content after animation
+      setTimeout(() => {
+        preloader.style.display = "none";
+        content.style.display = "block";
+      }, 800);
+    });
+  </script>
+</body>
+</html>
